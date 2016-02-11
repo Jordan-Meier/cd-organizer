@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
+        <title>Your Cds</title>
+    </head>
+    <body>
+
+        <form action="/cds" method="post">
+            <label for="artist">Artist Name</label>
+            <input type="text" name="artist" id="artist"><br><br>
+
+            <label for="cover">Enter a cover photo URL</label>
+            <input type="text" name="cover" id="cover"><br><br>
+
+            <label for="title">Album Title</label>
+            <input type="text" name="title" id="title"><br><br>
+
+            <button type="submit">Add Cd</button>
+
+        </form>
+
+        <form action='/delete_cds' method='post'>
+            <button type='submit'>Delete Cds</button>
+        </form>
+
+        <h1>Here is a list of your Cds:</h1>
+        {% if cds is not empty %}
+            {% for cd in cds %}
+                <ul>
+                    <li>{{ cd.getArtist }}</li>
+                    <li><img src="{{ cd.getCover }}" alt=""/></li>
+                        <ul>
+                            <li>{{ cd.getTitle }}</li>
+                        </ul>
+                </ul>
+            {% endfor %}
+        {% endif %}
+    </body>
+</html>
