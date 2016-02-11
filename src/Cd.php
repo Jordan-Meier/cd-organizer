@@ -29,7 +29,7 @@ class Cd
         return $this->cover;
     }
 
-    function save()
+    function saveCd()
     {
         array_push($_SESSION['list_of_cds'], $this);
     }
@@ -51,7 +51,12 @@ class Cd
         $_SESSION['list_of_cds'] = array();
     }
 
+    function getArtistName()
+    {
+        $current_artist =$this->artist;
+        return $current_artist->getName();
 
+    }
 
 
 }
