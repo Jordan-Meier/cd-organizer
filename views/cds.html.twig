@@ -23,7 +23,9 @@
         <form action='/delete_cds' method='post'>
             <button type='submit'>Delete Cds</button>
         </form>
-
+        <form action='/search' method='get'>
+            <button type='submit'>Search by Artist</button>
+        </form>
         <h1>Here is a list of your Cds:</h1>
         {% if cds is not empty %}
             {% for cd in cds %}

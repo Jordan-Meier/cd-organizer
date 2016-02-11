@@ -39,6 +39,8 @@ class Cd
         return strtolower($this->getArtistName()) == strtolower($input_artist);
     }
 
+if (in_array($user_input, $list_of_cds->name))
+
     static function getAll()
     {
         return $_SESSION['list_of_cds'];

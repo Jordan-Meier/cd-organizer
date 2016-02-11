@@ -11,9 +11,9 @@
             <button type="submit">Find Cds</button>
         </form>
 
-        <!-- <form action='/delete_cds' method='post'>
-            <button type='submit'>Delete Cds</button>
-        </form> -->
+        <form action='/' method='get'>
+            <button type='submit'>Add More Cds</button>
+        </form>
 
         {% if matching is not empty %}
         <h1>Here is a list of all albums by {{cd.getArtistName}}:</h1>
