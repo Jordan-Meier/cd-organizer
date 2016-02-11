@@ -34,12 +34,10 @@ class Cd
         array_push($_SESSION['list_of_cds'], $this);
     }
 
-    // function search($input_artist)
-    // {
-    //     return ($this->)
-    //
-    //     strpos($this->artist, $user_input)
-    // }
+    function search($input_artist)
+    {
+        return strtolower($this->getArtistName()) == strtolower($input_artist);
+    }
 
     static function getAll()
     {
