@@ -20,7 +20,7 @@
     // routes
 
     $app->get("/", function() use ($app) {
-        return $app['twig']->render('cds.html.twig', array('cds' => Cd::getAll()), array('artists' => Artist::getAll()));
+        return $app['twig']->render('cds.html.twig', array('cds' => Cd::getAll()));
     });
 
     $app->post("/cds", function() use ($app) {
@@ -32,6 +32,26 @@
 
         return $app['twig']->render('cds.html.twig', array('cds' => Cd::getAll()));
     });
+
+    $app->get("/search", function() use ($app) {
+
+        return $app['twig']->render('search.html.twig');
+    });
+
+    $app->post("/search", function() use ($app) {
+
+        $cds = Cd::getAll();
+        $artist_matching_search = array();
+        foreach ($cds as $cd) {
+            if($cd->search($_POST['user_input'])) {
+                array_push($artist_matching_search, $cd);
+            }
+        }
+
+        return $app['twig']->render('search.html.twig', array('matching' => $artist_matching_search));
+    });
+
+
 
     $app->post("/delete_cds", function() use ($app) {
         Cd::deleteAll();
