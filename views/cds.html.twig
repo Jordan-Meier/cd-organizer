@@ -28,10 +28,10 @@
         {% if cds is not empty %}
             {% for cd in cds %}
                 <ul>
-                    <li>{{ cd.getArtist }}</li>
+                    <li>Artist: {{ cd.getArtistName }}</li>
                     <li><img src="{{ cd.getCover }}" alt=""/></li>
                         <ul>
-                            <li>{{ cd.getTitle }}</li>
+                            <li>Album Title: {{ cd.getTitle }}</li>
                         </ul>
                 </ul>
             {% endfor %}
